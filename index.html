@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SR7</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"> 
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="js" href="assets/js/js.js"> 
+        <style>
+          @import url('https://fonts.googleapis.com/css?family=Raleway:300,500,700');
+
+/* Global */
+* {
+  box-sizing: border-box;
+}
+body{
+  color: #090b08;
+  margin:  0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  background-color: #ffe9ef;
+}
+h1{
+  font-size: 1.7em;
+  font-weight: 700;
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+h2{
+  text-transform: uppercase;
+}
+h4{
+  font-size: .8em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+h6{
+  font-weight: 500;
+}
+a{
+  text-decoration: none;
+  color: #090b08;
+}
+ul{
+  list-style: none;
+}
+section{
+  padding: 5.8em 2em 0;
+}
+.title{
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 1em;
+}
+.title.title-right{
+  justify-content: flex-end;
+}
+.line{  
+  width: 3em;
+  height: 1px;
+  background-color: #000;
+  margin-right: 1em;
+}
+.line.line-right{
+  order: 2;
+  margin-right: 0;
+  margin-left: 1em;
+}
+.btn{
+  display: inline-block;
+  padding: .5em 1.5em;
+  border: solid 1px #090b08;  
+  transition: all .3s ease-in;
+}
+.btn:hover, .btn:focus{
+  transform: translate(0px, -2px);
+  -webkit-box-shadow: 0px 10px 7px -9px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 7px -9px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 7px -9px rgba(0,0,0,0.75);
+  transition: all .3s ease-out; 
+}
+
+/* Header */
+header{
+  display: flex;
+  position: fixed;
+  width: 100%;
+  justify-content: space-between;
+  z-index: 1;
+  flex-direction: row;
+  align-items: baseline;
+}
+header:before{
+  content: "";
+  position: absolute;
+  background-color: #ffe9ef;
+  width: 100%;
+  height: 68%;
+  z-index: -1;
+  -webkit-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.22);
+  -moz-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.22);
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.22);
+}
+.nav-brand img{
+  width: auto;
+  padding-top: 1em;
+  height: 7.5em;
+}
+.toggle-menu{
+  display: block;
+  font-size: 1.2em;
+  align-self: center;
+  cursor: pointer;
+}
+input[type="checkbox"]{
+  display: none;
+}
+input[type="checkbox"]:hover ~ .toggle-menu,
+input[type="checkbox"]:checked ~ .toggle-menu
+{
+  border-bottom: solid 1px #090b08;
+}
+input[type="checkbox"]:checked ~ .navbar{
+  display: flex;
+  flex-direction: column;
+}
+.navbar{
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffe9ef;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: -2;
+}
+.menu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 4em 0 0;
+}
+a.nav-link{
+  margin-right: 0;
+}
+a.nav-link:hover,
+a.nav-link:active,
+a.nav-link:focus{
+  border-bottom: solid 1.8px #090b08;
+}
+.menu li{
+  margin-top: 3em;
+}
+.social-menu{
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+.social-menu li a{
+  margin: 0 .5em;
+  padding: .5em;
+}
+.social-menu li a{
+  font-size: 1.2em;
+}
+.social-menu li a:hover,
+.social-menu li a:active,
+.social-menu li a:focus
+{
+  border-bottom: solid 1px #000;
+}
+
+/* Hero Section */
+.hero {
+	display: flex;
+	height: 100vh;
+	align-items: center;
+	background: #f5d9d6 url("https://cdn.dribbble.com/users/19849/screenshots/6756318/cars.gif") no-repeat right bottom;
+}
+.hero-img img{
+  display: none;
+}
+.hero-text{
+  padding: 0 2em 7.5em;
+}
+
+/* Featured Section */
+#featured .image img{
+  width: 100%;
+  height: auto;
+}
+.text{
+  text-align: center;
+  padding-top: 1em;
+}
+.text p{
+  text-align: justify;
+  padding-bottom: 1em;
+  line-height: 1.4em;
+}
+
+/* Collections Section */
+.box{
+  display: block;
+  position: relative;
+  padding: 1.3em;
+  background-color: #f5d9d6;
+  text-align: center;
+  margin-bottom: 2em;
+}
+.box-overlay {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+	border: solid 3px #fff;
+	transform: translate(8px, 8px);
+  transition: all 1s ease;
+}
+.box:last-child{
+  margin-bottom: 5.8em;
+}
+.box:hover .box-overlay,
+.box:focus .box-overlay
+{
+  transform: translate(0px, 0px) scale(0.92, 0.8);
+}
+
+/* About Section */
+#about{
+  background-color: #f5d9d6;
+}
+section#about{
+  padding-bottom: 5.8em;
+}
+#about .text{
+  padding-top: 0;
+  margin-top: 0;
+  padding-bottom: 2em;
+}
+#about .text p{
+  padding-bottom: 0;
+  text-align: left;
+}
+.video-wrapper{
+  position: relative;
+  padding-bottom: 56.25%; 
+  overflow: hidden;
+  height: 0;
+}
+.video-wrapper iframe{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Contact Section */
+section#contact{
+  padding: 3em 2em .5em;
+}
+.form-wrapper:after,
+.contact-wrapper:after{
+  display: block;
+  content: "";
+  margin: 2em auto;
+  border-bottom: solid 1px #dadada;
+}
+form{
+  display: flex;
+}
+form input:first-child{
+  flex: 1 0 80%;
+  background-color: transparent;
+}
+form input:last-child{
+  flex: 1 0 20%;
+  border-left: 0;  
+  cursor: pointer;
+  background-color: #f5d9d6;
+  transition: all .25s ease;
+}
+#submit:hover {
+	background-color: #000;
+	color: #fff;
+  transition: all .25s ease;
+}
+input{
+  padding: 1em;
+  border: 1px solid #000;
+}
+.contact-wrapper .wrapper{
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.contact-wrapper .social-menu{
+  flex: 1 0 100%;
+  justify-content: center;
+}
+.contact-wrapper .social-menu li a {
+	font-size: 1.5em;
+  padding: 0;
+  margin: 0 1.5em 0 0;
+}
+.contact-wrapper a i{
+  width: 100%;
+  padding-bottom: .2em;
+}
+.contact-footer{
+  padding: 1em 0;
+  border: 1px solid #000;
+}
+.contact-footer:last-child{
+  border-left: 0;
+}
+.contact-footer:hover{
+  background-color: #f5d9d6;
+}
+.contact-tel{
+  flex: 1 0 50%;
+}
+.contact-email{
+  flex: 1 0 50%;
+}
+.copy-wrapper a{
+  font-weight: 700;
+}
+
+/* Responsive Style */
+@media(min-width: 320px){
+  
+}
+@media(min-width: 576px){
+  /*  Global  */
+  h1{
+    font-size: 2em;
+  }
+  
+  /*  Hero Section  */
+  .hero{
+    background-image: none;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-img{
+    padding-top: 6.5em;
+  }
+  .hero-img img{
+    display: block;
+    width: 14em;
+    height: auto;
+  }
+  .hero-text{
+    padding: 0 2em;
+  }
+  
+  /*  Featured Section  */
+  .text{
+    margin: 2em 2em auto;
+  }
+  
+  /*  Collections Section  */
+  #collections .wrapper{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .box{
+    padding: 3.2em;
+  }
+  .box1{
+    flex: 1 0 47%;
+    margin-right: 1em;
+  }
+  .box2{
+    flex: 1 0 47%;
+  }
+  .box3{
+    flex: 2 0 100%;
+  }
+  
+  /*  About Section  */
+  .video-wrapper{
+    margin: 0 2em;
+  }
+}
+@media(min-width: 768px){
+  /*  Global  */
+  .wrapper{
+    display: flex;
+  }
+  
+  /*  Header  */
+  .nav-brand img{
+    height: 10em;
+  }
+  .toggle-menu{
+    display: none;
+  }
+  .navbar{
+    display: flex;
+    position: relative;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    z-index: 1;
+  }
+  .menu{
+    flex-direction: row;
+    padding: 0;
+    justify-content: flex-end;
+  }
+  .social-menu{
+    display: none;
+  }
+  .menu li{
+    margin-top: 0;
+  }
+  a.nav-link{
+    margin-right: 3em;
+  }
+  
+  /*  Featured Section  */  
+  .text{
+    text-align: left;    
+    margin: 0 0 auto 4em;
+  }
+  #featured .text{
+    flex: 1;
+    order: 1;
+  }
+  #featured .image{
+    flex: 1 0 12em;
+    order: 2;
+  }
+  
+  /*  Collections Section  */
+  #collections .wrapper{
+    margin: 0 4em;
+  }
+  
+  /*  About Section  */
+  #about .wrapper{
+    display: block;
+  }
+  #about .text{
+    margin-right: 4em;
+  }
+  .video-wrapper{
+    margin: auto 4em;
+  }
+  
+  /* Contact Section  */
+  #contact .wrapper{
+    flex-wrap: wrap;
+  }
+  .form-wrapper, .contact-wrapper{
+    flex: 1 0 50%;
+    align-self: center;
+    padding: 0 1em;
+  }
+  .copy-wrapper{
+    flex: 1 0 100%;
+    padding: 0 1em;
+  }
+  .form-wrapper:after,
+  .contact-wrapper:after{
+    display: none;
+  }
+  .contact-footer{
+    border: 0;
+    padding: 0;
+    margin: .6em auto;
+    text-align: left;
+  }
+  .contact-footer:hover{
+    background-color: transparent;
+  }
+  .contact-wrapper a.contact-footer:hover i{
+    
+  }
+  .contact-wrapper a i{
+    width: auto;
+    padding-right: 1em;
+  }
+  .contact-wrapper .social-menu{
+    display: flex;
+    order: 3;
+    justify-content: flex-start;
+  }
+  .contact-wrapper .social-menu a i{
+    padding-right: 0;
+  }
+  .copy-wrapper:before{
+    display: block;
+    content: "";
+    margin: 2em auto;
+    border-bottom: solid 1px #dadada;
+  }
+}
+@media(min-width: 992px){
+  /*  Global  */
+  section{
+    padding: 5.8em 7em 0;
+  }  
+  .title.title-left{
+    margin-left: -2.5em;
+  }
+  .title.title-right{
+    margin-right: -2.5em;
+  }
+  .line{
+    width: 5.5em;
+  }
+  
+  /*  Hero Section  */
+  .hero-img img{
+    width: 14.5em;
+  }
+  
+  /*  Featured Section  */
+  #featured .image{
+    margin-top: -2em;
+  }
+  
+  /* About Section  */
+  #about .wrapper{
+    display: flex;
+  }
+  #about .text{
+    flex: 1 0 40%;
+    margin-right: 1em;
+    padding-bottom: 0;
+  }
+  .video-wrapper{
+    flex: 2 0 55%;
+    padding-bottom: 33.25%;
+    align-self: center;
+    margin: 1.4em 0;        
+  }
+  .contact-tel{
+    flex-basis: 20%;
+  }
+}
+@media(min-width: 1200px){
+  /*  Global  */
+  h1{
+    font-size: 2.4em;
+  }
+  section{
+    padding: 5.8em 11em 0;
+  }
+  
+  /*  Hero Section  */
+  .hero-img img{
+    width: 15.5em;
+  }
+  
+  /*  Featured Section  */
+  #featured .image{
+    margin-top: -4em;
+  }
+  
+  /*  About Section  */
+  #about .text{
+    padding-right: 3em;
+    padding-bottom: 0;
+  }
+  .video-wrapper{
+    margin: 0;
+  }
+}
+        </style>  
+    </head>
+        <body>
+            <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+
+<header id="header">
+  <!--  Brand Logo  -->
+  <h1>SR7</h1>
+  
+  <!--  Toggle Menu for Mobile  -->
+  
+  <input type="checkbox" id="toggle-menu" role="button">
+  <label for="toggle-menu" class="toggle-menu">Menu</label>
+  
+  <!--  Menus  -->
+  <nav id="nav-bar" class="navbar">
+    <ul class="menu">
+      <li><a class="nav-link" href="#featured">HOME</a></li>
+      <li><a class="nav-link" href="#collections">BRAND CARS</a></li>
+      <li><a class="nav-link" href="#about">ABOUT</a></li>
+      <li><a class="nav-link" href="#contact">CONTACT</a></li>
+    </ul>
+    <ul class="social-menu">
+      <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+      <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+      <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+      <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<div class="hero">
+  <div class="hero-img">
+    <img src="https://cdn.dribbble.com/users/19849/screenshots/6756318/cars.gif" alt="CARZZZZ">
+  </div>
+  <div class="hero-text">
+    <h1>Your Dream Car</br> Would Loved It!</h1>
+    <a href="#featured" class="btn">Explore</a>
+  </div>
+</div>
+
+<!-- Featured Section -->
+<section id="featured">
+  <div class="title title-left">
+    <span class="line line-right"></span><h3>RATATATATAAA!</h3>
+  </div>
+  <div class="wrapper">
+    <div class="image">
+      <img src="https://media.giphy.com/media/WqsIOopBaF4oE/giphy.gif" alt="Pixel Facial Cream">
+      
+    </div>
+    <div class="text">
+      <h2>Brand new CARS</h2>
+      <p>Car as life for Humans as Humans as Emotions for there CARS  _SR7</p>
+      <a href="#" class=btn>Details</a>
+    </div>
+  </div>
+</section>
+
+<!-- Collection Section -->
+<section id="collections">
+  <div class="title title-left">
+    <span class="line line-right"></span><h3>Collections</h3>
+  </div>
+  <div class="wrapper">
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=Awrx_yI0D0hn9FMAbOjnHgx.;_ylu=Y29sbwMEcG9zAzIEdnRpZAMEc2VjA3Ny/RV=2/RE=1732804532/RO=10/RU=https%3a%2f%2fwww.carwale.com%2fTATA-Cars%2f/RK=2/RS=cxE4FjWaSaDbGMmjOBz9Fw34AN4-">
+      <h4>Tata</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=AwrPrjaU7UdnFjw8vCbnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732795924/RO=10/RU=https%3a%2f%2fwww.rolls-roycemotorcars.com%2f/RK=2/RS=MqXE.P7TqWs18iaWMZBb3eyd9Ds-">
+      <h4>rolls-royce</h4>
+    </a>
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=AwrPrja17UdnMks6GhTnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732795958/RO=10/RU=https%3a%2f%2fwww.landrover.in%2findex.html/RK=2/RS=sIrHtP8gTHQEJ1_95o_LPOW.eus-">
+      <h4>Land rover</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=Awrx_yJO7UdnRq06fRbnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732795855/RO=10/RU=https%3a%2f%2fwww.bugatti.com%2f/RK=2/RS=cgISc.Wd3p6GV8CqY_OEkboWQJE-">
+      <h4>Bugatti</h4> 
+    </a>
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=AwrPrjYTBkhn6rY9nznnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732802195/RO=10/RU=https%3a%2f%2fauto.mahindra.com%2f/RK=2/RS=t5O39Imfscm0sucDGgcX8ajedaM-">
+      <h4>MAHINDRA</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=AwrKGltOCUhn9jMADwbnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732803023/RO=10/RU=https%3a%2f%2fwww.kia.com%2fin%2fhome.html/RK=2/RS=OaoRPGJEABnXDeLwBcMEiFcdu5o-">
+      <h4>Kia</h4>
+    </a>
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=Awrx_yKwD0hnV3UChQTnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732804656/RO=10/RU=https%3a%2f%2fwww.hondacarindia.com%2f/RK=2/RS=.zS14NMAf36r5DhDiC7zNzHhYpU-">
+      <h4>HONDA</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=Awrx_yJsEUhnN7ACNhPnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732805101/RO=10/RU=https%3a%2f%2fwww.ford.com%2f/RK=2/RS=RSErWWPDFKl6aiLfEBkUYFnB0EI-">
+      <h4>FORD</h4>
+    </a>
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=AwrPrjZoCUhnPJwAcCDnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732803049/RO=10/RU=https%3a%2f%2fwww.mercedes-benz.co.in%2f/RK=2/RS=cP7.bLWo93Y4UqUGzufeUnJAazs-">
+      <h4>Mercedes-Benz</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=AwrKGludCUhnW1o.FO_nHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732803101/RO=10/RU=https%3a%2f%2fwww.audi.in%2fen%2f/RK=2/RS=o9GemOePsnacZkTc7_sBxpfGrHk-">
+      <h4>Audi</h4>
+    </a>
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=Awrx_yJXEUhnPtAA4eTnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732805079/RO=10/RU=https%3a%2f%2fwww.toyotabharat.com%2f/RK=2/RS=3H.U_g2RM1_cl.VIzK0_JocyNZE-">
+      <h4>TOYATA</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=AwrPrjYbCEhnl5UAvwHnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732802716/RO=10/RU=https%3a%2f%2fwww.ford.com%2fcars%2fmustang%2f/RK=2/RS=NuFABkfoO8st5TFLzp2Nw7Fvysg-">
+      <h4>mustang</h4>
+    </a>
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=Awrx_yIlCkhnDvo_qq3nHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732803237/RO=10/RU=https%3a%2f%2fwww.bentleymotors.com%2fen.html/RK=2/RS=DMOI1p9WjaMMezPNG6vPx_ICn.Y-">
+      <h4>Bentley</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=AwrKGlvwCUhn0UUAEgvnHgx.;_ylu=Y29sbwMEcG9zAzIEdnRpZAMEc2VjA3Ny/RV=2/RE=1732803185/RO=10/RU=https%3a%2f%2fconfigurator.porsche.com%2fen-IN%2fmodel-start%2f/RK=2/RS=Kn0TmWar3JYNEWYmpAkPDnMU6N4-">
+      <h4>Porsche</h4>
+    </a>
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=AwrKGlvZCUhnYRkAgx7nHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732803161/RO=10/RU=https%3a%2f%2fwww.lamborghini.com%2fen-en/RK=2/RS=3u6Dm22Zm7cGYRmT2eGVMy6_Fac-">
+      <h4>Lamborghini</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=AwrPrjYaCUhnGBc_f9vnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732802970/RO=10/RU=https%3a%2f%2fwww.hyundai.com%2fin%2fen/RK=2/RS=KFuZlT9V_DSDiLcVtrtiBTCML_w-">
+      <h4>Hyundai</h4>
+    </a>
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=AwrPrjYACUhnn5c_SZbnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732802945/RO=10/RU=https%3a%2f%2fwww.marutisuzuki.com%2f/RK=2/RS=OM9W5gisx0UpJK14NYqYEY4iEBY-">
+      <h4>Maruti</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=AwrPrjbgCEhnBjgAnT_nHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732802912/RO=10/RU=https%3a%2f%2fwww.jaguar.in%2findex.html/RK=2/RS=6qs15fyDmYucCBx9Tw1eIQSmDV4-">
+      <h4>Jaguar</h4>
+    </a>
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=AwrPrjbFCEhnAmQA4CjnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732802885/RO=10/RU=https%3a%2f%2fwww.nissan.in%2f/RK=2/RS=uOsk9pVABMa3lCbhnEStDcq1bdE-">
+      <h4>Nissan</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=AwrPrjavCEhn0V8AYijnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732802864/RO=10/RU=https%3a%2f%2fwww.jeep-india.com%2f/RK=2/RS=jxtNSr4kBh1GQSBldqbeLeKJOig-">
+      <h4>Jeep</h4>
+    </a>
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=AwrPrjaaCEhnAmQAPiXnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732802842/RO=10/RU=https%3a%2f%2fwww.skoda-auto.co.in%2f/RK=2/RS=xCdqh13cyLDhg1suk4QCCfiiCQg-">
+      <h4>Skoda</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=Awrx_yJ.CEhncxsAsoLnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732802815/RO=10/RU=https%3a%2f%2fwww.volvocars.com%2fin%2f/RK=2/RS=Mpop7qaOXSNg78Voohop3ToGStM-">
+      <h4>Volvo</h4>
+    </a>
+    <a class="box box1" href="https://r.search.yahoo.com/_ylt=AwrPrjZdCEhn.t8_6GLnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732802782/RO=10/RU=https%3a%2f%2fwww.ferrari.com%2fen-EN/RK=2/RS=CarF.KGyNNg_ROZAo3yBKEyw7_E-">
+      <h4>Ferrari</h4>
+    </a>
+    <a class="box box2" href="https://r.search.yahoo.com/_ylt=AwrKGlsXC0hn4bg_d2TnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732803480/RO=10/RU=https%3a%2f%2fwww.mgmotor.co.in%2f/RK=2/RS=V9XMR3A0GWoYY7iKSEGkxtE3Uos-">
+      <h4>MG</h4>
+    </a>
+    <a class="box box3" href="https://r.search.yahoo.com/_ylt=Awrx_yJJCEhnb5A_17nnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1732802762/RO=10/RU=https%3a%2f%2fwww.volkswagen.co.in%2fen.html/RK=2/RS=jXtGLYKfVtDfRdPpL7Q0fergSgk-">
+      <h4>Volkswagen</h4>
+    </a>
+  </div>
+</section>
+
+<!-- about Section -->
+<section id="about">
+  <div class="title title-left">
+    <span class="line"></span><h3> CARS BRAND</h3>
+    <P>viwe it</P>
+  </div>
+  <div class="wrapper">
+    <div class="text">
+      <p>The modern automobile is a complex technical system employing subsystems with specific design functions. Some of these consist of thousands of component parts that have evolved from breakthroughs in existing technology or from new technologies such as electronic computers,</p>
+      <p>high-strength plastics, and new alloys of steel and nonferrous metals. Some subsystems have come about as a result of factors such as air pollution, safety legislation, and competition between manufacturers throughout the world.</p>
+      <p>New technical developments are recognized to be the key to successful competition. Research and development engineers and scientists have been employed by all automobile manufacturers and suppliers to improve the body, chassis, engine, drivetrain, control systems, safety systems, and emission-control systems.</p>
+    </div>
+    <div class="video-wrapper">
+      <img style="display: block;-webkit-user-select: none;width: 600px;height: 380px;" src="https://media.tenor.com/JOW-N0_tJTsAAAAM/cars.gif">
+      <iframe width="200" height="100" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="wrapper">
+    <div class="form-wrapper">    
+      <h4>Contact us</h4>
+      <form id="form" action="">
+        <input type="name" id="name" name="name" placeholder="Your name" required>
+      </form>
+      <form id="form" action="mailto:someone@example.com">
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+      </form>
+      <form id="form" action="">
+        <input type="phone" id="phone" name="phone" placeholder="Your number" required>
+      </form>
+      <form id="form" action="">
+        <input type="address" id="address" name="address" placeholder="Your address" required>
+      </form>
+      <form id="form" action="">
+        <input type="message" id="message" name="massage" placeholder="Your message" required>
+      </form>
+      <button>
+        <input type="submit" id="submit" value="submit" class="submit">
+      </button>
+    </div>
+    <div class="contact-wrapper">
+      <h4>Stay In Touch With PIXEL</h4>
+      <div class="wrapper">        
+        <ul class="social-menu">
+          <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+        </ul>
+        <a class="contact-footer contact-tel" href="#"><i class="fa fa-phone" aria-hidden="true"></i>+91 </a>
+        <a class="contact-footer contact-email" href="mailto:someone@example.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>Send an email</a>
+      </div>
+    </div>
+    <div class="copy-wrapper">
+      <h6><i class="fa fa-copyright" aria-hidden="true"></i>Design by <a href="https://twitter.com/chrissteverich1?lang=en">SR7</a></h6>
+    </div>
+  </div>
+</section>
+
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+                </script>
+        </body>
+</html>
+    
