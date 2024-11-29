@@ -460,68 +460,90 @@ input{
   }
   
   /* Contact Section  */
-  #contact .wrapper{
-    flex-wrap: wrap;
-  }
-  .form-wrapper, .contact-wrapper{
-    flex: 1 0 50%;
-    align-self: center;
-    padding: 0 1em;
-  }
-  .copy-wrapper{
-    flex: 1 0 100%;
-    padding: 0 1em;
-  }
-  .form-wrapper:after,
-  .contact-wrapper:after{
-    display: none;
-  }
-  .contact-footer{
-    border: 0;
+  *{
     padding: 0;
-    margin: .6em auto;
-    text-align: left;
+    margin: 0;
+    box-sizing: border-box;
+
   }
-  .contact-footer:hover{
-    background-color: transparent;
+  body{
+    font-family: 'outfit';
+    background: linear-gradient(#ffdad5,#fff7f9);
   }
-  .contact-wrapper a.contact-footer:hover i{
-    
-  }
-  .contact-wrapper a i{
-    width: auto;
-    padding-right: 1em;
-  }
-  .contact-wrapper .social-menu{
+  .content-container{
+    height: 100vh;
     display: flex;
-    order: 3;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: space-evenly;
   }
-  .contact-wrapper .social-menu a i{
-    padding-right: 0;
+  .contact-left{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
   }
-  .copy-wrapper:before{
-    display: block;
-    content: "";
-    margin: 2em auto;
-    border-bottom: solid 1px #dadada;
+  .contact-left-title h2{
+    font-weight: 600;
+    color: #a363aa;
+    font-size: 40px;
+    margin-bottom: 5px;
   }
-}
-@media(min-width: 992px){
-  /*  Global  */
-  section{
-    padding: 5.8em 7em 0;
-  }  
-  .title.title-left{
-    margin-left: -2.5em;
+  .contact-left-title hr{
+    border: none;
+    width: 120px;
+    height: 5px;
+    background-color: #a363aa;
+    border-radius: 10px;
+    margin-bottom: 20px;
   }
-  .title.title-right{
-    margin-right: -2.5em;
+  .contact-inputs{
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding-left: 25px;
+    font-weight: 500;
+    color: #666;
+    border-radius: 50px;
   }
-  .line{
-    width: 5.5em;
+  .contact-left textarea{
+    height: 140px;
+    padding-top: 15px;
+    border-radius: 20px;
+
   }
-  
+  .contact-inputs:focus{
+    border: 2px solid #3298dc;
+  }
+  .contact-inputs::placeholder{
+    color: #010101;
+  }
+  .contact-left button{
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: #fff;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(270deg,#ff994f,#fa6d86);
+    cursor:pointer;
+  }
+  .contact-left button img{
+    height: 15px;
+  }
+  .contact-right img{
+    width: 500px;
+  }
+  @media (max-width:800px) {
+    .contact-inputs{
+      width: 80vw;
+    }
+    .contact-right{
+      display: none;
+    }
+  }
   /*  Hero Section  */
   .hero-img img{
     width: 14.5em;
@@ -579,7 +601,7 @@ input{
     margin: 0;
   }
 }
-        </style>  
+        </style>
     </head>
         <body>
             <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
@@ -736,7 +758,7 @@ input{
       <p>New technical developments are recognized to be the key to successful competition. Research and development engineers and scientists have been employed by all automobile manufacturers and suppliers to improve the body, chassis, engine, drivetrain, control systems, safety systems, and emission-control systems.</p>
     </div>
     <div class="video-wrapper">
-      <img style="display: block;-webkit-user-select: none;width: 600px;height: 380px;" src="https://media.tenor.com/JOW-N0_tJTsAAAAM/cars.gif">
+      <img style="display: block none;width: 600px;height: 380px;" src="https://media.tenor.com/JOW-N0_tJTsAAAAM/cars.gif">
       <iframe width="200" height="100" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
@@ -744,45 +766,26 @@ input{
 
 <!-- Contact Section -->
 <section id="contact">
-  <div class="wrapper">
-    <div class="form-wrapper">    
-      <h4>Contact us</h4>
-      <form id="form" action="">
-        <input type="name" id="name" name="name" placeholder="Your name" required>
-      </form>
-      <form id="form" action="mailto:someone@example.com">
-        <input type="email" id="email" name="email" placeholder="Your email" required>
-      </form>
-      <form id="form" action="">
-        <input type="phone" id="phone" name="phone" placeholder="Your number" required>
-      </form>
-      <form id="form" action="">
-        <input type="address" id="address" name="address" placeholder="Your address" required>
-      </form>
-      <form id="form" action="">
-        <input type="message" id="message" name="massage" placeholder="Your message" required>
-      </form>
-      <button>
-        <input type="submit" id="submit" value="submit" class="submit">
-      </button>
-    </div>
-    <div class="contact-wrapper">
-      <h4>Stay In Touch With PIXEL</h4>
-      <div class="wrapper">        
-        <ul class="social-menu">
-          <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-        </ul>
-        <a class="contact-footer contact-tel" href="#"><i class="fa fa-phone" aria-hidden="true"></i>+91 </a>
-        <a class="contact-footer contact-email" href="mailto:someone@example.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>Send an email</a>
+<!-- about Section -->
+<section id="about">
+  <div class="content-container">
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+      <div class="contact-left-title">
+        <h2>get in touch</h2>
+        <hr>
       </div>
-    </div>
-    <div class="copy-wrapper">
-      <h6><i class="fa fa-copyright" aria-hidden="true"></i>Design by <a href="https://twitter.com/chrissteverich1?lang=en">SR7</a></h6>
-    </div>
+      <input type="hidden" name="access_key" value="c63572d2-d471-4d7f-9cff-0d37d9f7b9b7">
+      <input type="text" name="name" placeholder="your Name" class="contact-inputs" required>
+      <input type="text" name="email" placeholder="your Email" class="contact-inputs" required>
+      <input type="text" name="address" placeholder="your Address" class="contact-inputs" required>
+      <textarea name="message" placeholder="Your message" class="contact-inputs" required></textarea>
+      <button type="submit">submit <img src="" alt=""></button>
+    </form>
+<div class="contact-right">
+  <img src="https://media.giphy.com/media/WqsIOopBaF4oE/giphy.gif" alt="">
+</div>
   </div>
+</section>
 </section>
 
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
