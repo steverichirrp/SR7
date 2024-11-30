@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="js" href="assets/js/js.js"> 
         <style>
-          @import url('https://fonts.googleapis.com/css?family=Raleway:300,500,700');
+            @import url('https://fonts.googleapis.com/css?family=Raleway:300,500,700');
 
 /* Global */
 * {
@@ -264,78 +264,6 @@ section#about{
   height: 100%;
 }
 
-/* Contact Section */
-section#contact{
-  padding: 3em 2em .5em;
-}
-.form-wrapper:after,
-.contact-wrapper:after{
-  display: block;
-  content: "";
-  margin: 2em auto;
-  border-bottom: solid 1px #dadada;
-}
-form{
-  display: flex;
-}
-form input:first-child{
-  flex: 1 0 80%;
-  background-color: transparent;
-}
-form input:last-child{
-  flex: 1 0 20%;
-  border-left: 0;  
-  cursor: pointer;
-  background-color: #f5d9d6;
-  transition: all .25s ease;
-}
-#submit:hover {
-	background-color: #000;
-	color: #fff;
-  transition: all .25s ease;
-}
-input{
-  padding: 1em;
-  border: 1px solid #000;
-}
-.contact-wrapper .wrapper{
-  display: flex;
-  text-align: center;
-  flex-wrap: wrap;
-}
-.contact-wrapper .social-menu{
-  flex: 1 0 100%;
-  justify-content: center;
-}
-.contact-wrapper .social-menu li a {
-	font-size: 1.5em;
-  padding: 0;
-  margin: 0 1.5em 0 0;
-}
-.contact-wrapper a i{
-  width: 100%;
-  padding-bottom: .2em;
-}
-.contact-footer{
-  padding: 1em 0;
-  border: 1px solid #000;
-}
-.contact-footer:last-child{
-  border-left: 0;
-}
-.contact-footer:hover{
-  background-color: #f5d9d6;
-}
-.contact-tel{
-  flex: 1 0 50%;
-}
-.contact-email{
-  flex: 1 0 50%;
-}
-.copy-wrapper a{
-  font-weight: 700;
-}
-
 /* Responsive Style */
 @media(min-width: 320px){
   
@@ -527,7 +455,7 @@ input{
     gap: 10px;
     border: none;
     border-radius: 50px;
-    background: linear-gradient(270deg,#ff994f,#fa6d86);
+    background: linear-gradient(270deg,#4fbcff,#746dfa);
     cursor:pointer;
   }
   .contact-left button img{
@@ -536,7 +464,7 @@ input{
   .contact-right img{
     width: 500px;
   }
-  @media (max-width:800px) {
+  @media screen and (max-width:400px) {
     .contact-inputs{
       width: 80vw;
     }
